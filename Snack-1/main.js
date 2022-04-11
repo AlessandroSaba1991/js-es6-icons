@@ -63,6 +63,47 @@ const auto_diesel = automobili.filter(auto => {
     return auto.alimentazione === 'diesel'
 })
 const auto_altro = automobili.filter(auto => auto.alimentazione !== 'benzina' && auto.alimentazione !== 'diesel')
+
+stamp_list('.cards', auto_benzina)
+stamp_list('.cards', auto_diesel)
+stamp_list('.cards', auto_altro)
+
+function stamp_list(dom_element, array) {
+    const element_cards = document.querySelector(dom_element)
+    array.forEach(auto => {
+        let markup
+        switch (auto.alimentazione) {
+            case 'benzina':
+                markup = `
+                <div class="card" style="width: calc(100% / ${array.length} - 2rem);background-color: red")>
+                    <h2>${auto.marca}</h2>
+                    <p>${auto.modello}</p>
+                    <p>${auto.alimentazione}</p>
+                </div>
+                `
+                break;
+            case 'diesel':
+                markup = `
+                <div class="card" style="width: calc(100% / ${array.length} - 2rem);background-color: blue")>
+                    <h2>${auto.marca}</h2>
+                    <p>${auto.modello}</p>
+                    <p>${auto.alimentazione}</p>
+                </div>
+                `
+                break;
+            default:
+                markup = `
+                <div class="card" style="width: calc(100% / ${array.length} - 2rem);background-color: green")>
+                    <h2>${auto.marca}</h2>
+                    <p>${auto.modello}</p>
+                    <p>${auto.alimentazione}</p>
+                </div>
+                `
+                break;
+        }
+        element_cards.insertAdjacentHTML('beforeend', markup)
+    });
+}
 console.log(auto_benzina);
 console.log(auto_diesel);
 console.log(auto_altro);
