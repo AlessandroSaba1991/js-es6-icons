@@ -76,38 +76,40 @@ stamp_list('.cards', auto_altro)
 function stamp_list(dom_element, array) {
     const element_cards = document.querySelector(dom_element)
     array.forEach(element => {
-        let markup
+        let color
         switch (element.alimentazione) {
             case 'benzina':
-                markup = `
-                <div class="card" style="width: calc(100% / ${array.length} - 2rem);background-color: red")>
-                    <h2>${element.marca}</h2>
-                    <p>${element.modello}</p>
-                    <p>${element.alimentazione}</p>
-                </div>
-                `
+                color = 'red'
                 break;
             case 'diesel':
-                markup = `
-                <div class="card" style="width: calc(100% / ${array.length} - 2rem);background-color: blue")>
-                    <h2>${element.marca}</h2>
-                    <p>${element.modello}</p>
-                    <p>${element.alimentazione}</p>
-                </div>
-                `
+                color = 'blue'
                 break;
             default:
-                markup = `
-                <div class="card" style="width: calc(100% / ${array.length} - 2rem);background-color: green")>
+                color = 'green'
+                break;
+        }
+        const markup = mark_up(element, color, array)
+        element_cards.insertAdjacentHTML('beforeend', markup)
+    });
+}
+
+
+/**
+ * ### Genera il markup 
+ * @param {string} element array element
+ * @param {string} color background color
+ * @param {string} array array
+ * @returns markup
+ */
+function mark_up(element, color, array) {
+    const markup = `
+                <div class="card" style="width: calc(100% / ${array.length} - 2rem);background-color:` + color + `")>
                     <h2>${element.marca}</h2>
                     <p>${element.modello}</p>
                     <p>${element.alimentazione}</p>
                 </div>
                 `
-                break;
-        }
-        element_cards.insertAdjacentHTML('beforeend', markup)
-    });
+    return markup
 }
 
 console.log(auto_benzina);

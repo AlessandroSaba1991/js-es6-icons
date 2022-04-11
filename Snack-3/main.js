@@ -37,13 +37,24 @@ stamp_list('.cards', mammiferi)
 function stamp_list(dom_element, array) {
     const element_cards = document.querySelector(dom_element)
     array.forEach(element => {
-        const markup = `
-      <div class="card" style="width: calc(100% / ${array.length} - 2rem);background-color: green")>
-          <h2>${element.nome}</h2>
-          <p>${element.famiglia}</p>
-          <p>${element.classe}</p>
-      </div>
-      `
+        const markup = mark_up(element, array)
         element_cards.insertAdjacentHTML('beforeend', markup)
     });
+}
+
+/**
+ * ### Genera il markup 
+ * @param {string} element array element
+ * @param {string} array array
+ * @returns markup
+ */
+function mark_up(element, array) {
+    const markup = `
+              <div class="card" style="width: calc(100% / ${array.length} - 2rem);background-color:green")>
+                <h2>${element.nome}</h2>
+                <p>${element.famiglia}</p>
+                <p>${element.classe}</p>
+              </div>
+              `
+    return markup
 }

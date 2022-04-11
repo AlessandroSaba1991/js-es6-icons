@@ -6,55 +6,47 @@ Crea quindi un nuovo array inserendo, per ogni persona, una frase con il nome e 
 */
 
 const persone = [{
-        nome: 'Alessandro',
-        cognome: 'Saba',
+        nome: "Alessandro",
+        cognome: "Saba",
         eta: 30,
     },
     {
-        nome: 'Claudio',
-        cognome: 'Sbirri',
+        nome: "Claudio",
+        cognome: "Sbirri",
         eta: 20,
     },
     {
-        nome: 'Giulia',
-        cognome: 'Stin',
+        nome: "Giulia",
+        cognome: "Stin",
         eta: 15,
     },
     {
-        nome: 'Franca',
-        cognome: 'Babba',
+        nome: "Franca",
+        cognome: "Babba",
         eta: 17,
     },
     {
-        nome: 'Gino',
-        cognome: 'Pulcino',
+        nome: "Gino",
+        cognome: "Pulcino",
         eta: 27,
     },
     {
-        nome: 'Lorenzo',
-        cognome: 'Breccola',
+        nome: "Lorenzo",
+        cognome: "Breccola",
         eta: 18,
-    }
-]
+    },
+];
 
-const persone_2 = persone.map(persona => {
+const persone_2 = persone.map((persona) => {
     if (persona.eta > 17) {
-        return `
-        <div class="card" style="width: calc(100% - 2rem); background-color: green">
-            <h2>${persona.cognome} ${persona.nome} ha ${persona.eta}, quindi può guidare</h2>
-        </div>
-        `
+        return mark_up(persona, 'green');
     } else {
-        return `
-        <div class="card" style="width: calc(100% - 2rem); background-color: red">
-            <h2>${persona.cognome} ${persona.nome} ha ${persona.eta}, quindi può guidare</h2>
-        </div>
-        `
+        return mark_up(persona, 'red');
     }
-})
+});
 console.log(persone_2);
 
-stamp_list('.cards', persone_2)
+stamp_list(".cards", persone_2);
 
 /**
  * ###stampa una lista sul nodo della dom creato
@@ -62,8 +54,23 @@ stamp_list('.cards', persone_2)
  * @param {string} array lista da stampare
  */
 function stamp_list(dom_element, array) {
-    const element_cards = document.querySelector(dom_element)
-    array.forEach(element => {
-        element_cards.insertAdjacentHTML('beforeend', element)
+    const element_cards = document.querySelector(dom_element);
+    array.forEach((element) => {
+        element_cards.insertAdjacentHTML("beforeend", element);
     });
+}
+
+/**
+ * ### Genera il markup
+ * @param {string} element array element
+ * @param {string} color background color
+ * @returns markup
+ */
+function mark_up(element, color) {
+    const markup = `
+                <div class="card" style="width: calc(100% - 2rem); background-color: ` + color + `">
+                    <h2>${element.cognome} ${element.nome} ha ${element.eta}, quindi può guidare</h2>
+                </div>
+                `
+    return markup;
 }
