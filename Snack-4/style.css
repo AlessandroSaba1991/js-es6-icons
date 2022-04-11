@@ -24,7 +24,6 @@ header {
 
 .cards {
     display: flex;
-    justify-content: center;
     flex-wrap: wrap;
     margin: 0 -1rem;
     row-gap: 2rem;

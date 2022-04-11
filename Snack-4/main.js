@@ -38,11 +38,24 @@ const persone = [{
 ]
 
 const persone_2 = persone.map(persona => {
-    let text
     if (persona.eta > 17) {
-        return text = `${persona.cognome} ${persona.nome} ha ${persona.eta}, quindi può guidare`
+        return `${persona.cognome} ${persona.nome} ha ${persona.eta}, quindi può guidare`
     } else {
-        return text = `${persona.cognome} ${persona.nome} ha ${persona.eta}, quindi non può guidare`
+        return `${persona.cognome} ${persona.nome} ha ${persona.eta}, quindi non può guidare`
     }
 })
 console.log(persone_2);
+
+stamp_list('.cards', persone_2)
+
+function stamp_list(dom_element, array) {
+    const element_cards = document.querySelector(dom_element)
+    array.forEach(element => {
+        const markup = `
+      <div class="card" style="width: calc(100% - 2rem)">
+          <h2>${element}</h2>
+      </div>
+      `
+        element_cards.insertAdjacentHTML('beforeend', markup)
+    });
+}

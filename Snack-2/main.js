@@ -9,8 +9,17 @@ const nomi = ['alessandro', 'GIANFRANCO', 'ClAuDIO']
 const nomi_capitalize = nomi.map(nome => {
     return nome.charAt(0).toUpperCase() + nome.substring(1).toLowerCase();
 })
+stamp_list('.cards', nomi_capitalize)
 
-const element_cards = document.querySelector('.cards')
-const markup = `<div class="card">${nomi_capitalize}</div>`
-element_cards.insertAdjacentHTML('beforeend', markup)
+function stamp_list(dom_element, array) {
+    const element_cards = document.querySelector(dom_element)
+    array.forEach(element => {
+        const markup = `
+      <div class="card" style="width: calc(100% - 2rem)")>
+          <h2>${element}</h2>
+      </div>
+      `
+        element_cards.insertAdjacentHTML('beforeend', markup)
+    });
+}
 console.log(nomi_capitalize);
