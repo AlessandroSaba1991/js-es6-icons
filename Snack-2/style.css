@@ -24,12 +24,14 @@ header {
 
 .cards {
     display: flex;
+    justify-content: center;
     flex-wrap: wrap;
     margin: 0 -1rem;
     row-gap: 2rem;
 }
 
 .card {
+    background-color: lightblue;
     color: white;
     box-shadow: 0 0 5px gray;
     margin: 1rem;

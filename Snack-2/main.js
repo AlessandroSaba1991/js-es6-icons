@@ -9,4 +9,8 @@ const nomi = ['alessandro', 'GIANFRANCO', 'ClAuDIO']
 const nomi_capitalize = nomi.map(nome => {
     return nome.charAt(0).toUpperCase() + nome.substring(1).toLowerCase();
 })
+
+const element_cards = document.querySelector('.cards')
+const markup = `<div class="card">${nomi_capitalize}</div>`
+element_cards.insertAdjacentHTML('beforeend', markup)
 console.log(nomi_capitalize);
