@@ -1,0 +1,41 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: aquamarine;
+}
+
+header {
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-color: bisque;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 2rem auto;
+}
+
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -1rem;
+    row-gap: 2rem;
+}
+
+.card {
+    background-color: lightblue;
+    color: white;
+    box-shadow: 0 0 5px gray;
+    margin: 1rem;
+    border-radius: 0.75rem;
+    text-align: center;
+    padding: 1.5rem;
+    text-transform: capitalize;
+}
