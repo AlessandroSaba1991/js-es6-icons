@@ -38,10 +38,15 @@ const persone = [{
 ];
 
 const persone_2 = persone.map((persona) => {
+    let text, color
     if (persona.eta > 17) {
-        return mark_up(persona, 'green');
+        text = 'può guidare'
+        color = 'green'
+        return mark_up(persona, color, text);
     } else {
-        return mark_up(persona, 'red');
+        text = 'non può guidare'
+        color = 'red'
+        return mark_up(persona, color, text);
     }
 });
 console.log(persone_2);
@@ -66,10 +71,10 @@ function stamp_list(dom_element, array) {
  * @param {string} color background color
  * @returns markup
  */
-function mark_up(element, color) {
+function mark_up(element, color, text) {
     const markup = `
                 <div class="card" style="width: calc(100% - 2rem); background-color: ` + color + `">
-                    <h2>${element.cognome} ${element.nome} ha ${element.eta}, quindi può guidare</h2>
+                    <h2>${element.cognome} ${element.nome} ha ${element.eta}, quindi ${text}</h2>
                 </div>
                 `
     return markup;
