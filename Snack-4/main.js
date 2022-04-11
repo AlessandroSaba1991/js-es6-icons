@@ -28,7 +28,7 @@ const persone = [{
     {
         nome: 'Gino',
         cognome: 'Pulcino',
-        eta: 21,
+        eta: 27,
     },
     {
         nome: 'Lorenzo',
