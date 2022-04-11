@@ -59,15 +59,20 @@ const automobili = [{
 ]
 
 const auto_benzina = automobili.filter(auto => auto.alimentazione === 'benzina')
-const auto_diesel = automobili.filter(auto => {
-    return auto.alimentazione === 'diesel'
-})
+const auto_diesel = automobili.filter(auto => auto.alimentazione === 'diesel')
 const auto_altro = automobili.filter(auto => auto.alimentazione !== 'benzina' && auto.alimentazione !== 'diesel')
 
 stamp_list('.cards', auto_benzina)
 stamp_list('.cards', auto_diesel)
 stamp_list('.cards', auto_altro)
 
+
+
+/**
+ * ###stampa una lista sul nodo della dom creato
+ * @param {string} dom_element nodo della dom da creare e dove si vuole stampare la lista
+ * @param {string} array lista da stampare
+ */
 function stamp_list(dom_element, array) {
     const element_cards = document.querySelector(dom_element)
     array.forEach(element => {
@@ -104,6 +109,7 @@ function stamp_list(dom_element, array) {
         element_cards.insertAdjacentHTML('beforeend', markup)
     });
 }
+
 console.log(auto_benzina);
 console.log(auto_diesel);
 console.log(auto_altro);

@@ -30,7 +30,6 @@ header {
 }
 
 .card {
-    background-color: lightblue;
     color: white;
     box-shadow: 0 0 5px gray;
     margin: 1rem;

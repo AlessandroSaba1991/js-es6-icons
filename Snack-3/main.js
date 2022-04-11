@@ -28,6 +28,12 @@ console.log(mammiferi);
 
 stamp_list('.cards', mammiferi)
 
+
+/**
+ * ###stampa una lista sul nodo della dom creato
+ * @param {string} dom_element nodo della dom da creare e dove si vuole stampare la lista
+ * @param {string} array lista da stampare
+ */
 function stamp_list(dom_element, array) {
     const element_cards = document.querySelector(dom_element)
     array.forEach(element => {
